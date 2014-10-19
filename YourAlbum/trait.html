@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>PhotoGeeks</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/prettyPhoto/css/prettyPhoto.css">
+        <link rel="stylesheet" href="assets/css/flexslider.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+
+
+        <script type="text/javascript" src="pixastic/pixastic.core.js"></script>
+        <script type="text/javascript" src="pixastic/actions/flipv.js"></script>
+        <script type="text/javascript" src="pixastic/actions/desaturate.js"></script>
+        <script type="text/javascript" src="pixastic/actions/colorhistogram.js"></script>
+        <script type="text/javascript" src="pixastic/actions/edges2.js"></script>
+        <script type="text/javascript" src="pixastic/actions/invert.js"></script>
+        <script type="text/javascript" src="pixastic/actions/removenoise.js"></script>
+        <script type="text/javascript" src="pixastic/actions/noise.js"></script>
+
+
+            <script type="text/javascript" src="pixastic/actions/sepia.js"></script>
+            <script type="text/javascript" src="pixastic/actions/blur.js"></script>
+            <script type="text/javascript" src="pixastic/actions/sharpen.js"></script>
+            <script type="text/javascript" src="pixastic/actions/blurfast.js"></script>
+            <script type="text/javascript" src="pixastic/actions/histogram.js"></script>
+
+            <script type="text/javascript" src="pixastic/actions/solarize.js"></script>
+            <script type="text/javascript" src="pixastic/actions/mosaic.js"></script>
+            <script type="text/javascript" src="pixastic/actions/pointillize.js"></script>
+            <script type="text/javascript" src="pixastic/actions/fliph.js"></script>
+
+
+
+
+            <link rel="shortcut icon" href="../favicon.ico">
+        <link rel="stylesheet" type="text/css" href="buttoncustem/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="buttoncustem/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="buttoncustem/css/component.css" />
+        <script src="js/modernizr.custom.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <div class="container">
+            <div class="header row">
+                <div class="span12">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </a>
+                            <h1>
+                                <a class="brand" href="index.html">PhotoGeeks- a super cool design ...</a>
+                            </h1>
+                            <div class="nav-collapse collapse">
+                                <ul class="nav pull-right">
+                                    <li>
+                                        <a href="index"><i class="icon-home"></i><br />Home</a>
+                                    </li>
+                                    <li >
+                                        <a href="portfolio"><i class="icon-camera"></i><br />Your Photos</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="services"><i class="icon-tasks"></i><br />Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="about"><i class="icon-user"></i><br />About</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact"><i class="icon-envelope-alt"></i><br />Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="logout"><i class="icon-signout"></i><br />Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Title -->
+        <div class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <i class="icon-camera page-title-icon"></i>
+                        <h2>Magic/</h2>
+                        <p>Do some magic</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio -->
+
+
+
+
+                <script type="text/javascript">
+
+var hist = {};
+function colorhist() {
+    Pixastic.process(document.getElementById("demoimage"), "colorhistogram", {
+        paint:true,returnValue:hist
+    });
+}
+
+function Flipimage() {
+    Pixastic.process(document.getElementById("demoimage"), "flipv");
+}
+function resetDemo() {
+    Pixastic.revert(document.getElementById("demoimage"));
+}
+
+function noirblan() {
+    Pixastic.process(document.getElementById("demoimage"), "desaturate", {average : false});
+}
+function edges() {
+    Pixastic.process(document.getElementById("demoimage"), "edges2", {mono:true,invert:false});
+}
+function invert() {
+    Pixastic.process(document.getElementById("demoimage"), "invert");
+}
+
+function sepia() {
+    Pixastic.process(document.getElementById("demoimage"), "sepia");
+}
+
+function pointillize() {
+    Pixastic.process(document.getElementById("demoimage"), "pointillize", {radius:5, density:1.2, noise:0.8, transparent:false});
+}
+function sharpen() {
+    Pixastic.process(document.getElementById("demoimage"),"sharpen", {
+        amount : 0.30
+    });
+}
+function blurfast() {
+    Pixastic.process(document.getElementById("demoimage"), "blurfast", {amount:0.8
+    });
+}
+
+function solarize() {
+    Pixastic.process(document.getElementById("demoimage"), "solarize");
+}
+function histogram() {
+    Pixastic.process(document.getElementById("demoimage"),"histogram", {
+        average:false,paint:true,color:"rgb(255,69,0)",returnValue:{}
+    });
+}
+function fliph() {
+    Pixastic.process(document.getElementById("demoimage"), "fliph");
+}
+function mosaic() {
+    Pixastic.process(document.getElementById("demoimage"), "mosaic", {blockSize:6});
+}
+
+function removenoise() {
+    Pixastic.process(document.getElementById("demoimage"), "removenoise");
+}
+
+function noise() {
+    Pixastic.process(document.getElementById("demoimage"), "noise", {mono:false,amount:0.4,strength:0.4});
+}
+</script>
+        <center>
+        <br><br><br>
+
+
+
+       <img src="{{name}}" id="demoimage" alt=""  height="400" width="500" class="img-rounded"><br>
+
+       <button  onclick="resetDemo()" class="btn btn-primary">Reset</button>
+            <button  rel="demoimage" class="btn btn-info">Download</button>
+
+
+
+
+</center>
+
+
+<br>
+
+
+
+
+
+            <section class="color-1">
+                <nav class="cl-effect-14">
+
+                    <a onclick="noirblan();"><span data-hover="Lassitude">Gray</span></a>
+                    <a onclick="colorhist();"><span data-hover="Murmurous">Histograme colore</span></a>
+                    <a onclick="histogram();"><span data-hover="Assemblage">Histogram</span></a>
+                    <a onclick="edges();"><span data-hover="Palimpsest">Edges</span></a>
+                    <a onclick="invert();"><span data-hover="Assemblage">Invert</span></a>
+                    <a onclick="solarize();" >Solarize</a>
+                    <a onclick="Flipimage();"><span data-hover="Ratatouille">Flip Vertical</span></a>
+                    <a onclick="fliph();">Flip Horizantal</a>
+                    <a onclick="sepia();"><span data-hover="Ratatouille">Sepia</span></a>
+                    <a onclick="pointillize();"><span data-hover="Lassitude">Pointillize</span></a>
+                    <a onclick="sharpen();"><span data-hover="Murmurous">Sharpe</span></a>
+                    <a onclick="blurfast();"><span data-hover="Palimpsest">Blurfast</span></a>
+                    <a onclick="mosaic();">Mosaic</a>
+                    <a onclick="removenoise();">Remove Noise</a>
+                    <a onclick="noise();">Make Noise</a>
+
+
+                </nav>
+
+</section>
+
+
+
+
+          <br><br>
+
+        <!-- Footer -->
+ <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="widget span3">
+                        <h4>About Us</h4>
+                        <p> Photogeeks was launched in April of 2014 and has from the very beginning brought powerful,
+easy to use photo editing tools into the hands of anyone and everyone with an internet connection. Utilizing cloud computing to
+provide a suite of image processing tools , Photogeeks has made professional-level photo </p>
+
+                        <p><a href="about">Read more...</a></p>
+                    </div>
+                    <div class="widget span3">
+
+                    </div>
+                    <div class="widget span3">
+
+                    </div>
+                    <div class="widget span3">
+                        <h4>Contact Us</h4>
+                        <p><i class="icon-map-marker"></i> Address:Higher Institute of Computer, Ariena, Tunisia</p>
+                        <p><i class="icon-phone"></i> Phone: 216+ 52474850</p>
+                        <p><i class="icon-user"></i> Skype: Photomania_Agency</p>
+                        <p><i class="icon-envelope-alt"></i> Email: <a href="#">slimchebbiisi@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-border"></div>
+                <div class="row">
+                    <div class="copyright span4">
+                        <p>Copyright 2014 Photomania- All rights reserved</p>
+                    </div>
+                    <div class="social span8">
+                        <a class="facebook" href=""></a>
+
+                        <a class="twitter" href=""></a>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.flexslider.js"></script>
+        <script src="assets/js/jquery.tweet.js"></script>
+        <script src="assets/js/jflickrfeed.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="assets/js/jquery.ui.map.min.js"></script>
+        <script src="assets/js/jquery.quicksand.js"></script>
+        <script src="assets/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript">
+
+
+
+
+
+
+        function DownloadImage(imageURL) {
+    var oImage = document.getElementById(imageURL);
+    var canvas = document.createElement("canvas");
+    document.body.appendChild(canvas);
+    if (typeof canvas.getContext == "undefined" || !canvas.getContext) {
+        alert("browser does not support this action, sorry");
+        return false;
+    }
+
+    try {
+        var context = canvas.getContext("2d");
+        var width = oImage.width;
+        var height = oImage.height;
+        canvas.width = width;
+        canvas.height = height;
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+        context.drawImage(oImage, 0, 0, width, height);
+        var rawImageData = canvas.toDataURL("image/png");
+        rawImageData = rawImageData.replace("image/png", "image/octet-stream");
+        document.location.href = rawImageData;
+        document.body.removeChild(canvas);
+    }
+    catch (err) {
+        document.body.removeChild(canvas);
+        alert("Sorry, can't download");
+    }
+
+    return true;
+}
+
+window.onload = function() {
+    var arrButtons = document.getElementsByTagName("button");
+    for (var i = 0; i < arrButtons.length; i++) {
+        var oButton = arrButtons[i];
+        var sRelatedImage = oButton.getAttribute("rel");
+        if (sRelatedImage && sRelatedImage.length > 0) {
+            oButton.onclick = function() {
+                HandleRelatedImage(this, sRelatedImage);
+            }
+        }
+    }
+};
+
+function HandleRelatedImage(oButton, sRelatedImage) {
+    var oImage = document.getElementById(sRelatedImage);
+    if (!oImage) {
+        alert("related image '" + sRelatedImage + "' does not exist");
+        return false;
+    }
+
+    return DownloadImage(sRelatedImage);
+}
+        </script>
+
+    </body>
+
+</html>
+

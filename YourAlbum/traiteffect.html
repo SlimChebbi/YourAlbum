@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<title>PhotoGeeks</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/prettyPhoto/css/prettyPhoto.css">
+		<link rel="stylesheet" href="assets/css/flexslider.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Favicon and touch icons -->
+		<link rel="shortcut icon" href="assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="buttoncustem/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="buttoncustem/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="buttoncustem/css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+
+	<body>
+
+		<!-- Header -->
+		<div class="container">
+			<div class="header row">
+				<div class="span12">
+					<div class="navbar">
+						<div class="navbar-inner">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+							<h1><a class="brand" href="index.html">PhotoGeeks - a super cool design </a></h1>
+							<div class="nav-collapse collapse">
+								<ul class="nav pull-right">
+									<li>
+										<a href="index"><i class="icon-home">&nbsp;</i>
+										<br />
+										Home</a>
+									</li>
+									<li >
+										<a href="portfolio"><i class="icon-camera">&nbsp;</i>
+										<br />
+										Your Photos</a>
+									</li>
+
+									<li>
+										<a href="services"><i class="icon-tasks">&nbsp;</i>
+										<br />
+										Services</a>
+									</li>
+									<li>
+										<a href="about"><i class="icon-user">&nbsp;</i>
+										<br />
+										About</a>
+									</li>
+									<li>
+										<a href="contact"><i class="icon-envelope-alt">&nbsp;</i>
+										<br />
+										Contact</a>
+									</li>
+									<li>
+										<a href="logout"><i class="icon-signout">&nbsp;</i>
+										<br />
+										Logout</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Page Title -->
+		<div class="page-title">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<i class="icon-camera page-title-icon">&nbsp;</i>
+						<h2>Effect/</h2>
+						<p>
+							Do some Effects
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Portfolio -->
+
+		<script type="text/javascript">
+			function Crop() {
+				Pixastic.process(document.getElementById('demoimage'), 'crop', {
+					rect : {
+						left : $("#slide3").val(),
+						top : $("#slide4").val(),
+						width : $("#slide5").val(),
+						height : $("#slide6").val()
+					}
+				});
+			}
+
+			function Brightness() {
+				Pixastic.process(document.getElementById('demoimage'), "brightness", {
+					brightness : $("#slide1").val(),
+					contrast : $("#slide2").val()
+				});
+			}
+
+			function HSL() {
+				Pixastic.process(document.getElementById('demoimage'), "hsl", {
+					hue : $("#slide7").val(),
+					saturation : $("#slide8").val(),
+					lightness : $("#slide9").val()
+				});
+			}
+
+			function Emboss() {
+				Pixastic.process(document.getElementById('demoimage'), "emboss", {
+					greyLevel : $("#slide10").val(),
+					direction : $("#value-direction").val()
+				});
+			}
+
+
+			function Blind() {
+
+
+
+				Pixastic.process(document.getElementById("demoimage"), "blend", {
+		amount : $("#slide11").val(),
+		mode : $("#value-direction").val(),
+		image : $("#image2").get(0)
+	});
+
+
+			}
+
+
+
+
+			function resetDemo() {
+				Pixastic.revert(document.getElementById("demoimage"));
+				document.getElementById('cl').style.display = 'none';
+				document.getElementById('cl1').style.display = 'none';
+				document.getElementById('cl2').style.display = 'none';
+				document.getElementById('cl3').style.display = 'none';
+				document.getElementById('cl4').style.display = 'none';
+			}
+
+			function updateSlider1(slideAmount) {
+				var display = document.getElementById("chosen1");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider2(slideAmount) {
+				var display = document.getElementById("chosen2");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider3(slideAmount) {
+				var display = document.getElementById("chosen3");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider4(slideAmount) {
+				var display = document.getElementById("chosen4");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider5(slideAmount) {
+				var display = document.getElementById("chosen5");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider6(slideAmount) {
+				var display = document.getElementById("chosen6");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider7(slideAmount) {
+				var display = document.getElementById("chosen7");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider8(slideAmount) {
+				var display = document.getElementById("chosen8");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider9(slideAmount) {
+				var display = document.getElementById("chosen9");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider10(slideAmount) {
+				var display = document.getElementById("chosen10");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function updateSlider11(slideAmount) {
+				var display = document.getElementById("chosen11");
+				//show the amount
+				display.innerHTML = slideAmount;
+			}
+
+			function visibelCrop() {
+				document.getElementById('cl1').style.display = 'block';
+
+			}
+
+			function visibelBright() {
+				document.getElementById('cl').style.display = 'block';
+
+			}
+
+			function visibelHSL() {
+				document.getElementById('cl2').style.display = 'block';
+
+			}
+
+			function visibelEmboss() {
+				document.getElementById('cl3').style.display = 'block';
+
+			}
+
+
+			function visibelBlind() {
+				document.getElementById('cl4').style.display = 'block';
+
+			}
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'Insert Your Code']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		<center>
+
+				<br>
+				<br>
+				<br>
+
+
+				<img src="{{name}}" id="demoimage" alt=""  >
+
+				<br>
+
+				<button  onclick="resetDemo()" class="btn btn-primary">
+					Reset
+				</button>
+				<button  rel="demoimage" class="btn btn-info">
+					Download
+				</button>
+				<div   id="cl" style="display:none">
+					<input id="slide1" type="range" alt="contrast"
+					min="-1.0" max="3.0" step="0.1" value="0.3"
+					onchange="updateSlider1(this.value)"  />
+					contrast
+					<div id="chosen1">
+						0.3
+					</div>
+
+					<input id="slide2" type="range"
+					min="-150" max="150" step="1" value="30"
+					onchange="updateSlider2(this.value)" alt="lumiere"  />
+					lumiere
+					<div id="chosen2">
+						30
+					</div>
+
+					<section class="color-8">
+						<nav class="cl-effect-7">
+							<a onclick="Brightness();">GO</a>
+						</nav>
+					</section>
+				</div>
+
+				<div   id="cl1" style="display:none">
+					<input id="slide3" type="range" alt="Left"
+					min="0" max="300" step="1" value="50"
+					onchange="updateSlider3(this.value)"  />
+					Left
+					<div id="chosen3">
+						50
+					</div>
+
+					<input id="slide4" type="range"
+					min="0" max="300" step="1" value="50"
+					onchange="updateSlider4(this.value)" alt="Top"  />
+					Top
+					<div id="chosen4">
+						50
+					</div>
+
+					<input id="slide5" type="range" alt="Width"
+					min="0" max="300" step="1" value="50"
+					onchange="updateSlider5(this.value)"  />
+					Width
+					<div id="chosen5">
+						50
+					</div>
+
+					<input id="slide6" type="range"
+					min="0" max="300" step="1" value="50"
+					onchange="updateSlider6(this.value)" alt="Height"  />
+					Height
+					<div id="chosen6">
+						50
+					</div>
+
+					<section class="color-8">
+						<nav class="cl-effect-7">
+							<a onclick="Crop();">GO</a>
+						</nav>
+					</section>
+				</div>
+
+				<div   id="cl2" style="display:none">
+					<input id="slide7" type="range" alt="Hue"
+					min="-180" max="180" step="1" value="0"
+					onchange="updateSlider7(this.value)"  />
+					Hue
+					<div id="chosen7">
+						0
+					</div>
+
+					<input id="slide8" type="range"
+					min="-100" max="100" step="1" value="0"
+					onchange="updateSlider8(this.value)" alt="Saturation"  />
+					Saturation
+					<div id="chosen8">
+						0
+					</div>
+
+					<input id="slide9" type="range" alt="Ligthness"
+					min="-100" max="100" step="1" value="0"
+					onchange="updateSlider9(this.value)"  />
+					Ligthness
+					<div id="chosen9">
+						0
+					</div>
+
+					<section class="color-8">
+						<nav class="cl-effect-7">
+							<a onclick="HSL();">GO</a>
+						</nav>
+					</section>
+				</div>
+
+				<div   id="cl3" style="display:none">
+					<input id="slide10" type="range" alt="Gray Level"
+					min="0" max="255" step="1" value="128"
+					onchange="updateSlider10(this.value)"  />
+					Gray Level
+					<div id="chosen10">
+						128
+					</div>
+
+					<select id="value-direction" class="demo-select">
+						<option value="topleft">Top left</option>
+						<option value="top">Top</option>
+						<option value="topright">Top right</option>
+						<option value="right">Right</option>
+						<option value="bottomright">Bottom right</option>
+						<option value="bottom">Bottom</option>
+						<option value="bottomleft">Bottom left</option>
+						<option value="left">Left</option>
+					</select>
+
+					<section class="color-8">
+						<nav class="cl-effect-7">
+							<a onclick="Emboss();">GO</a>
+						</nav>
+					</section>
+				</div>
+
+
+				<div   id="cl4" style="display:none">
+					<input id="slide11" type="range" alt=" Level"
+					min="0" max="1" step="0.1" value="0.5"
+					onchange="updateSlider11(this.value)"  />
+					Amount
+					<div id="chosen11">
+						0.5
+					</div>
+
+					<select id="value-direction" class="demo-select">
+						<option value="normal">Normal</option>
+						<option value="multiply">Multiply</option>
+						<option value="lighten">Lighten</option>
+						<option value="darken">Darken</option>
+						<option value="lightercolor">Lightercolor</option>
+						<option value="darkercolor">Darkercolor</option>
+						<option value="difference">Difference</option>
+						<option value="screen">Screen</option>
+
+
+						<option value="exclusion">Exclusion</option>
+						<option value="overlay">Overlay</option>
+						<option value="softlight">Softlight</option>
+						<option value="hardlight">Hardlight</option>
+						<option value="colordodge">Colordodge</option>
+						<option value="colorburn">Colorburn</option>
+						<option value="lineardodge">Lineardodge</option>
+						<option value="vividlight">Vividlight</option>
+
+
+					</select>
+
+					<br>
+					<input type="file" name="file" id="files" ><br>
+
+					<output id="list"></output>
+					<section class="color-8">
+						<nav class="cl-effect-7">
+							<a onclick="Blind();">GO</a>
+						</nav>
+					</section>
+				</div>
+
+
+		</center>
+		<br>
+
+		<section class="color-1">
+			<nav class="cl-effect-14">
+			<a onclick="visibelBlind();"><span data-hover="Lassitude">Blind</span></a>
+				<a onclick="visibelCrop();"><span data-hover="Lassitude">Crop</span></a>
+				<a onclick="visibelBright();"><span data-hover="Murmurous">Brightness</span></a>
+				<a onclick="visibelHSL();"><span data-hover="Assemblage">Hue/Saturation/Lightness</span></a>
+				<a onclick="visibelEmboss();"><span data-hover="Palimpsest">Emboss</span></a>
+			</nav>
+
+		</section>
+
+		<br>
+		<br>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="widget span3">
+						<h4>About Us</h4>
+						<p> Photogeeks was launched in April of 2014 and has from the very beginning brought powerful,
+easy to use photo editing tools into the hands of anyone and everyone with an internet connection. Utilizing cloud computing to
+provide a suite of image processing tools , Photogeeks has made professional-level photo </p>
+
+						<p>
+							<a href="about">Read more...</a>
+						</p>
+					</div>
+					<div class="widget span3">
+
+					</div>
+					<div class="widget span3">
+
+					</div>
+					<div class="widget span3">
+						<h4>Contact Us</h4>
+						<p>
+							<i class="icon-map-marker"></i> Address:Higher Institute of Computer, Ariena, Tunisia
+						</p>
+						<p>
+							<i class="icon-phone"></i> Phone: 216+ 52474850
+						</p>
+						<p>
+							<i class="icon-user"></i> Skype: Photomania_Agency
+						</p>
+						<p>
+							<i class="icon-envelope-alt"></i> Email: <a href="#">slimchebbiisi@gmail.com</a>
+						</p>
+					</div>
+				</div>
+				<div class="footer-border"></div>
+				<div class="row">
+					<div class="copyright span4">
+						<p>
+							Copyright 2014 Photomania- All rights reserved
+						</p>
+					</div>
+					<div class="social span8">
+						<a class="facebook" href=""></a>
+
+						<a class="twitter" href=""></a>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Javascript -->
+		<script type="text/javascript" src="pixastic/pixastic.core.js"></script>
+		<script type="text/javascript" src="pixastic/actions/flipv.js"></script>
+		<script type="text/javascript" src="pixastic/actions/desaturate.js"></script>
+		<script type="text/javascript" src="pixastic/actions/colorhistogram.js"></script>
+		<script type="text/javascript" src="pixastic/actions/edges2.js"></script>
+		<script type="text/javascript" src="pixastic/actions/invert.js"></script>
+		<script type="text/javascript" src="pixastic/actions/removenoise.js"></script>
+		<script type="text/javascript" src="pixastic/actions/noise.js"></script>
+		<script type="text/javascript" src="pixastic/actions/crop.js"></script>
+		<script type="text/javascript" src="pixastic/actions/brightness.js"></script>
+		<script type="text/javascript" src="pixastic/actions/hsl.js"></script>
+		<script type="text/javascript" src="pixastic/actions/emboss.js"></script>
+		<script type="text/javascript" src="pixastic/actions/blend.js"></script>
+		<script type="text/javascript" src="pixastic/actions/sepia.js"></script>
+		<script type="text/javascript" src="pixastic/actions/blur.js"></script>
+		<script type="text/javascript" src="pixastic/actions/sharpen.js"></script>
+		<script type="text/javascript" src="pixastic/actions/blurfast.js"></script>
+		<script type="text/javascript" src="pixastic/actions/histogram.js"></script>
+
+		<script type="text/javascript" src="pixastic/actions/solarize.js"></script>
+		<script type="text/javascript" src="pixastic/actions/mosaic.js"></script>
+		<script type="text/javascript" src="pixastic/actions/pointillize.js"></script>
+		<script type="text/javascript" src="pixastic/actions/fliph.js"></script>
+
+		<script src="assets/js/jquery-1.8.2.min.js"></script>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/js/jquery.flexslider.js"></script>
+		<script src="assets/js/jquery.tweet.js"></script>
+		<script src="assets/js/jflickrfeed.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script src="assets/js/jquery.ui.map.min.js"></script>
+		<script src="assets/js/jquery.quicksand.js"></script>
+		<script src="assets/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+		<script src="assets/js/scripts.js"></script>
+
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript">
+			function DownloadImage(imageURL) {
+				var oImage = document.getElementById(imageURL);
+				var canvas = document.createElement("canvas");
+				document.body.appendChild(canvas);
+				if ( typeof canvas.getContext == "undefined" || !canvas.getContext) {
+					alert("browser does not support this action, sorry");
+					return false;
+				}
+
+				try {
+					var context = canvas.getContext("2d");
+					var width = oImage.width;
+					var height = oImage.height;
+					canvas.width = width;
+					canvas.height = height;
+					canvas.style.width = width + "px";
+					canvas.style.height = height + "px";
+					context.drawImage(oImage, 0, 0, width, height);
+					var rawImageData = canvas.toDataURL("image/png");
+        rawImageData = rawImageData.replace("image/png", "image/octet-stream");
+					document.location.href = rawImageData;
+					document.body.removeChild(canvas);
+				} catch (err) {
+					document.body.removeChild(canvas);
+					alert("Sorry, can't download");
+				}
+
+				return true;
+			}
+
+
+			window.onload = function() {
+				var arrButtons = document.getElementsByTagName("button");
+				for (var i = 0; i < arrButtons.length; i++) {
+					var oButton = arrButtons[i];
+					var sRelatedImage = oButton.getAttribute("rel");
+					if (sRelatedImage && sRelatedImage.length > 0) {
+						oButton.onclick = function() {
+							HandleRelatedImage(this, sRelatedImage);
+						}
+					}
+				}
+			};
+
+			function HandleRelatedImage(oButton, sRelatedImage) {
+				var oImage = document.getElementById(sRelatedImage);
+				if (!oImage) {
+					alert("related image '" + sRelatedImage + "' does not exist");
+					return false;
+				}
+
+				return DownloadImage(sRelatedImage);
+			}
+		</script>
+
+
+		<script type="text/javascript">
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+function handleFileSelect(evt) {
+        var files = evt.target.files;
+        var f = files[0];
+        var reader = new FileReader();
+
+          reader.onload = (function(theFile) {
+                return function(e) {
+                  document.getElementById('list').innerHTML = ['<br><img src="', e.target.result,'" title="', theFile.name, '" id="image2" class="img-rounded" />'].join('');
+                };
+          })(f);
+
+          reader.readAsDataURL(f);
+}
+
+</script>
+
+
+	</body>
+
+</html>
+

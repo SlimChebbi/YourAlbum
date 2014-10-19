@@ -1,0 +1,5 @@
+indexes:
+- kind: Photo
+  ancestor: yes
+  properties:
+  - name: description
